@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h1>MY PORTFOLIO</h1>
+    <ul>
+
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="about" class="section">
+
+  <h2>About Me</h2>
+  <div class="about-grid">
+    <div class="home-photo">
+            <img src="profile.jpg" alt="Profile Image">
+        </div>
+    <div class="about-text">
+     <p>I am Sampada K.C., a student at Kantipur Engineering College with a strong interest in web development.
+     </p>
+
+     <p>I enjoy building interactive and user-friendly websites using HTML, CSS, JavaScript, and React. I am continuously learning new technologies and improving my skills to create better digital experiences.
+     </p>
+     <p>Click the button below for futher enquiry.</p>
+     <a href="#form"><button>Enquiry</button></a>
+
+    </div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <div class="project-card">
+            <h3>Website Portfolio</h3>
+            <p>The current website is personal portfolio website showcasing my skills and projects.</p>
+        </div>
+        <div class="project-card">
+            <h3>Quiz App</h3>
+            <p>An interactive quiz application with multiple categories, score tracking, and a results summary screen.</p>
+        </div>
+        <div class="project-card">
+            <h3>Expense Tracker</h3>
+            <p>A personal finance tracker built with React and local storage to manage income and expenses visually.</p>
+        </div>
+        <div class="project-card">
+            <h3>Weather App</h3>
+            <p>A real-time weather application built with React that fetches live data using OpenWeatherMap API.</p>
+        </div>
+    </div>
+</section>
+
+<section id="calendar">
+    <h2>Calendar</h2>
+    <div class="calendar-box">
+        <div class="cal-top">
+            <button onclick="changeMonth(-1)">&#8249;</button>
+            <h3 id="monthYear"></h3>
+            <button onclick="changeMonth(1)">&#8250;</button>
+        </div>
+        <div class="day-names">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+        <div class="days-grid" id="daysGrid"></div>
+    </div>
+</section>
+
+<script>
+ function seeMyWork() {
+        document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function seeCalendar() {
+        document.getElementById("calendar").scrollIntoView({ behavior: "smooth" });
+    }
+ function seeContact() {
+        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    }
+    var currentMonth = new Date().getMonth();
+    var currentYear = new Date().getFullYear();
+
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+
+    function showCalendar() {
+        var today = new Date();
+        var firstDay = new Date(currentYear, currentMonth, 1).getDay();
+        var totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+        document.getElementById("monthYear").textContent = monthNames[currentMonth] + " " + currentYear;
+
+        var grid = document.getElementById("daysGrid");
+        grid.innerHTML = "";
+
+        for (var i = 0; i < firstDay; i++) {
+            var empty = document.createElement("div");
+            empty.className = "empty";
+            empty.textContent = "";
+            grid.appendChild(empty);
+        }
+
+        for (var d = 1; d <= totalDays; d++) {
+            var day = document.createElement("div");
+            day.textContent = d;
+
+            if (d === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+                day.className = "today";
+            }
+
+            grid.appendChild(day);
+        }
+    }
+
+    function changeMonth(direction) {
+        currentMonth = currentMonth + direction;
+
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear = currentYear + 1;
+        }
+
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear = currentYear - 1;
+        }
+
+        showCalendar();
+    }
+
+    showCalendar();
+</script>
+
+    <section id="form">
+        <h2>Enquiry</h2>
+        <form class="myform">
+
+            <div class="input">
+                <label> Name:</label>
+                <input type="text" placeholder="Your Name" required/>
+             </div>
+
+             <div class="input">
+                <label> Email:</label>  
+                <input type="email" placeholder="Your Email" required/>
+             </div>
+        
+             <div class="input">
+                <label> Phone No:</label>
+                <input type="text" placeholder="Your Phone Number" required/>
+             </div>
+             <div class="input">
+                <label> Enquiry:</label>
+                <textarea placeholder="Your Enquiry" rows="4" required></textarea>
+             </div>
+
+        <button type="button" id="submitBtn">Submit</button>
+        <p id="error" style="color:red"></p>
+    </form>
+    </section>
+
+<section id="contact" class="contact-bar">
+    <h2>Contact</h2>
+    <p>
+        You can reach me via email i.e kan080bct072@kec.edu.np <br/>
+        Thank you for visiting my portfolio.
+    </p>
+</section>
+
+<footer>
+    <p>Sampada K.C. &copy; 2026</p>
+</footer>
+
+</body>
+</html>

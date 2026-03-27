@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(216, 230, 239);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-box {
+  background-color:rgb(66, 99, 145);
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid rgb(14, 55, 102);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-box h2 {
+  margin-bottom: 24px;
+  color: white;
+  font-size: 22px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: rgb(185, 216, 236);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #c4ced9;
+  border-radius: 4px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: rgb(105, 105, 105);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(124, 173, 229);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button:hover {
+  background-color: #d7ca76;
+}
+
+.message {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #d7ca76;
+}
+
+.switch-text {
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgb(192, 192, 192);
+  text-align: center;
+}
+
+.switch-text span {
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
